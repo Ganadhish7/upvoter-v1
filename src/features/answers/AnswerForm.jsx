@@ -1,31 +1,35 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import postAnswer from "./PostAnswer";
+import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-function AnswerForm({ questionId }) {
+function AnswerForm() {
+  // eslint-disable-next-line no-unused-vars
+  const [newAnswer, setNewAnswer] = useState({ answer_text: "" });
   const queryClient = useQueryClient();
 
   const mutation = useMutation(postAnswer, {
-    onSuccess: (data) => {
-      console.log(data);
-      queryClient.invalidateQueries(["question", questionId]);
+    onSuccess: () => {
       queryClient.invalidateQueries("answers");
     },
   });
 
   function handleAnswerSubmit(e) {
     e.preventDefault();
-    mutation.mutate({
-      questionId,
-      answer_text: e.target.elements.answer_text.value,
-    });
-
-    e.target.elements.answer_text.value = "";
+    console.log({ newAnswer });
+    mutation.mutate(newAnswer);
   }
   return (
     <div>
       <form onSubmit={handleAnswerSubmit}>
-        <textarea name="answer_text" placeholder="Type your answer..." />
+        <textarea
+          name="answer_text"
+          value={newAnswer}
+          onChange={(e) =>
+            setNewAnswer({ ...newAnswer, newAnswer: e.target.value })
+          }
+          placeholder="Type your answer..."
+        />
         <button type="submit" disabled={mutation.isLoading}>
           {mutation.isLoading ? "Posting.." : "Submit answer"}
         </button>
