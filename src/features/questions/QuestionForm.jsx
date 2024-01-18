@@ -11,6 +11,8 @@ const postQuestion = async (newQuestion) => {
     .upsert({ title: topic, content: question })
     .select();
 
+  if (!data) return;
+
   if (error) {
     throw new Error("Can't post the question");
   }
@@ -32,37 +34,48 @@ const QuestionForm = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (!newQuestion.topic || !newQuestion.question) {
+      return;
+    }
+
     mutation.mutate(newQuestion);
     setNewQuestion({ topic: "", question: "" });
   }
 
   return (
     <div>
-      <h1 className=" font-bold">Ask a Question</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Topic:
+        <div className=" space-y-1 w-full p-4 bg-slate-300 rounded-lg text-lg">
+          <h1 className=" font-bold">Ask a Question here....</h1>
+          <label>Topic:</label>
           <input
+            className=" w-full rounded-sm"
             type="text"
             value={newQuestion.topic}
             onChange={(e) =>
               setNewQuestion({ ...newQuestion, topic: e.target.value })
             }
           />
-        </label>
-        <br />
-        <label>
-          Question:
+          <br />
+          <label>Question:</label>
           <input
+            className=" w-full rounded-sm"
             type="text"
             value={newQuestion.question}
             onChange={(e) =>
               setNewQuestion({ ...newQuestion, question: e.target.value })
             }
           />
-        </label>
-        <br />
-        <button type="submit">Post</button>
+
+          <br />
+          <button
+            className=" text-white p-1 w-full bg-black rounded-lg hover:bg-slate-600"
+            type="submit"
+          >
+            Post
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLogin } from "./userLogin";
+
 // import { login } from "../../services/apiAuth";
 
 function LoginForm() {
@@ -17,36 +18,48 @@ function LoginForm() {
           setMail("");
           setPassword("");
         },
-      }
+      },
     );
   }
   return (
-    <div>
+    <div className=" flex justify-center">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          <input
-            type="email"
-            name="email"
-            value={email}
-            autoComplete="username"
-            onChange={(e) => setMail(e.target.value)}
-            disabled={isLoading}
-          />
-        </label>
-        <br />
-        <label htmlFor="password">
-          <input
-            type="password"
-            id="password"
-            value={password}
-            autoComplete="current-password"
-            onChange={(e) => setPassword(e.target.value)}
-            disabled={isLoading}
-          />
-        </label>
-        <button type="submit" disabled={isLoading}>
-          Login
-        </button>
+        <div className=" bg-slate-200 w-96 h-80 p-10 space-y-2 flex flex-col justify-center text-left rounded-lg text-lg">
+          <div>
+            <label htmlFor="email">Username</label>
+            <input
+              className=" w-full rounded-md p-1"
+              type="email"
+              name="email"
+              value={email}
+              autoComplete="username"
+              onChange={(e) => setMail(e.target.value)}
+              disabled={isLoading}
+            />
+          </div>
+          <br />
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              className=" w-full rounded-md p-1"
+              type="password"
+              id="password"
+              value={password}
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={isLoading}
+            />
+          </div>
+          <div className=" relative top-3">
+            <button
+              className=" w-full bg-black text-white rounded-full p-1 hover:bg-slate-600"
+              type="submit"
+              disabled={isLoading}
+            >
+              Login
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

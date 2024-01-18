@@ -46,15 +46,24 @@ const QuestionList = ({ questions }) => {
   // }
 
   return (
-    <div>
-      <h1>Questions</h1>
+    <div className=" bg-slate-400 mt-5 rounded-xl max-h-[25rem] overflow-y-auto md:overflow-auto">
+      <p className=" font-bold uppercase">Questions</p>
       {questions.map((question) => (
-        <div key={question.id}>
-          <h3>{question.content}</h3>
-          <p>Posted by: {question.user_name}</p>
-          <p>Upvotes: {question.upvotes}</p>
-          <p>Timestamp: {new Date(question.created_at).toLocaleString()}</p>
-          <button onClick={() => handleUpvote(question.id)}>upvote</button>
+        <div className=" text-left p-3 text-lg" key={question.id}>
+          <div className=" bg-slate-500 p-5 rounded-lg leading-8 tracking-wide">
+            <p className=" font-bold text-white">
+              Question: {question.content}
+            </p>
+            <p>Posted by: {question.user_name}</p>
+            <p>Upvotes: {question.upvotes}</p>
+            <p>Timestamp: {new Date(question.created_at).toLocaleString()}</p>
+            <button
+              className=" bg-black text-white p-1 rounded-lg w-full hover:bg-slate-700"
+              onClick={() => handleUpvote(question.id)}
+            >
+              Upvote
+            </button>
+          </div>
 
           {/* <AnswerForm questionId={question.id} />
           <AnswerList questionId={question.id} /> */}

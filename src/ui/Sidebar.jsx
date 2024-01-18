@@ -3,10 +3,10 @@ import MainNav from "./MainNav";
 
 function Sidebar() {
   return (
-    <>
+    <div>
       <Logo />
       <MainNav />
-    </>
+    </div>
   );
 }
 

@@ -23,8 +23,10 @@ function Dashboard() {
     return <div>Error loading questions</div>;
   }
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className=" text-center p-5">
+      <p className=" text-2xl font-bold uppercase text-white tracking-widest">
+        Dashboard
+      </p>
       <QuestionForm />
       <QuestionList questions={data || []} />
     </div>
