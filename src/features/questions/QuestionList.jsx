@@ -5,8 +5,8 @@
 // import { useState } from "react";
 import supabase from "../../services/supabase";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import AnswerForm from "../answers/AnswerForm";
-import AnswerList from "../answers/AnswerList";
+// import AnswerForm from "../answers/AnswerForm";
+// import AnswerList from "../answers/AnswerList";
 
 const getUpvoteCount = async (questionId) => {
   const { data: question } = await supabase
@@ -56,8 +56,8 @@ const QuestionList = ({ questions }) => {
           <p>Timestamp: {new Date(question.created_at).toLocaleString()}</p>
           <button onClick={() => handleUpvote(question.id)}>upvote</button>
 
-          <AnswerForm questionId={question.id} />
-          <AnswerList questionId={question.id} />
+          {/* <AnswerForm questionId={question.id} />
+          <AnswerList questionId={question.id} /> */}
         </div>
       ))}
     </div>

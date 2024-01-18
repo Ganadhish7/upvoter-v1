@@ -6,8 +6,10 @@ function AppLayout() {
   return (
     <>
       <Header />
-      <Sidebar />
-      <Outlet />
+      <div>
+        <Sidebar />
+        <Outlet />
+      </div>
     </>
   );
 }

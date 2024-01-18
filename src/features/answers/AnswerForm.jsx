@@ -5,7 +5,9 @@ import { useState } from "react";
 // eslint-disable-next-line react/prop-types
 function AnswerForm() {
   // eslint-disable-next-line no-unused-vars
-  const [newAnswer, setNewAnswer] = useState({ answer_text: "" });
+  const [newAnswer, setNewAnswer] = useState({
+    postedAnswer: "",
+  });
   const queryClient = useQueryClient();
 
   const mutation = useMutation(postAnswer, {
@@ -16,7 +18,7 @@ function AnswerForm() {
 
   function handleAnswerSubmit(e) {
     e.preventDefault();
-    console.log({ newAnswer });
+    console.log(newAnswer);
     mutation.mutate(newAnswer);
   }
   return (
@@ -24,10 +26,8 @@ function AnswerForm() {
       <form onSubmit={handleAnswerSubmit}>
         <textarea
           name="answer_text"
-          value={newAnswer}
-          onChange={(e) =>
-            setNewAnswer({ ...newAnswer, newAnswer: e.target.value })
-          }
+          value={newAnswer.postedAnswer}
+          onChange={(e) => setNewAnswer({ postedAnswer: e.target.value })}
           placeholder="Type your answer..."
         />
         <button type="submit" disabled={mutation.isLoading}>

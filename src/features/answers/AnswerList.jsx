@@ -14,7 +14,7 @@ function AnswerList({ questionId }) {
   return (
     <div>
       <ul>
-        {answers.map((answer) => (
+        {answers?.map((answer) => (
           <li key={answer.question_id}>
             <p>{answer.answer_text}</p>
           </li>

@@ -1,23 +1,22 @@
 import supabase from "../../services/supabase";
 
 async function postAnswer(answer) {
-  const { question_id, user_id, answer_text } = answer;
+  const { postedAnswer, questionId } = answer;
   const { data, error } = await supabase
     .from("answers")
-    .upsert({
-      question_id,
-      user_id,
-      answer_text,
+    .update({
+      answer_text: postedAnswer,
     })
+    .eq(questionId)
     .select();
 
   if (error) {
     throw new Error("Can't post the answer");
   }
 
-  // console.log(data);
+  console.log(data);
 
-  return data;
+  // return data;
 }
 
 export default postAnswer;

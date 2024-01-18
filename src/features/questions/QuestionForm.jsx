@@ -38,7 +38,7 @@ const QuestionForm = () => {
 
   return (
     <div>
-      <h1>Ask a Question</h1>
+      <h1 className=" font-bold">Ask a Question</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Topic:
