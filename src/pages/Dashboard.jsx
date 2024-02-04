@@ -24,7 +24,7 @@ function Dashboard() {
   }
   return (
     <div className=" text-center p-5">
-      <p className=" text-2xl font-bold uppercase text-white tracking-widest">
+      <p className=" text-2xl font-bold uppercase text-black tracking-widest">
         Dashboard
       </p>
       <QuestionForm />

@@ -46,11 +46,11 @@ const QuestionList = ({ questions }) => {
   // }
 
   return (
-    <div className=" bg-slate-400 mt-5 rounded-xl max-h-[25rem] overflow-y-auto md:overflow-auto">
+    <div className="  mt-5 rounded-xl max-h-[25rem] overflow-y-auto md:overflow-auto">
       <p className=" font-bold uppercase">Questions</p>
       {questions.map((question) => (
         <div className=" text-left p-3 text-lg" key={question.id}>
-          <div className=" bg-slate-500 p-5 rounded-lg leading-8 tracking-wide">
+          <div className=" bg-red-300 p-5 rounded-lg leading-8 tracking-wide">
             <p className=" font-bold text-white">
               Question: {question.content}
             </p>
