@@ -14,13 +14,16 @@
 This application allows users to ask questions or queries, the most liked question will automatically bubble up to the top. It is developed with React.js, JavaScript, React Query, Supabase, and Tailwind CSS. The application features signup and sign-in functions, utilizing Supabase for authentication and authorization.
 
 ## Screenshots
-
+- Signup
 ![Signup Page](./public/screenshots/Signup.png)
 
+- Sign in
 ![Signin Page](./public/screenshots/Signin.png)
 
+- Dashboard
 ![Dashboard](./public/screenshots/Dashboard.png)
 
+- Question Form
 ![Question Submission](./public/screenshots/Question-form.png)
 
 ## Technologies Used
@@ -31,7 +34,7 @@ This application allows users to ask questions or queries, the most liked questi
 - Tailwind CSS
 
 ## Setup / Installation
-1. Clone the repository: `git clone [https://github.com/yourusername/yourrepository.git](https://github.com/Ganadhish7/upvoter-v1.git)`
+1. Clone the repository: `git clone https://github.com/Ganadhish7/upvoter-v1.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
 
