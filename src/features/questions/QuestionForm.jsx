@@ -19,7 +19,8 @@ const postQuestion = async (newQuestion) => {
   return data;
 };
 
-const QuestionForm = () => {
+function QuestionForm(){
+  
   const [newQuestion, setNewQuestion] = useState({
     topic: "",
     question: "",
@@ -45,40 +46,40 @@ const QuestionForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className=" space-y-1 w-full p-4 bg-slate-300 rounded-lg text-lg">
-          <h1 className=" font-bold">Ask a Question here....</h1>
-          <label>Topic:</label>
-          <input
-            className=" w-full rounded-sm"
-            type="text"
-            value={newQuestion.topic}
-            onChange={(e) =>
-              setNewQuestion({ ...newQuestion, topic: e.target.value })
-            }
-          />
-          <br />
-          <label>Question:</label>
-          <input
-            className=" w-full rounded-sm"
-            type="text"
-            value={newQuestion.question}
-            onChange={(e) =>
-              setNewQuestion({ ...newQuestion, question: e.target.value })
-            }
-          />
+    <form onSubmit={handleSubmit}>
+      <div className=" space-y-1 w-full p-4 bg-slate-300 rounded-lg text-lg">
+        <h1 className=" font-bold">Ask a Question here....</h1>
+        <label>Topic:</label>
+        <input
+          className=" w-full rounded-sm"
+          type="text"
+          value={newQuestion.topic}
+          onChange={(e) =>
+            setNewQuestion({ ...newQuestion, topic: e.target.value })
+          }
+        />
+        <br />
+        <label>Question:</label>
+        <input
+          className=" w-full rounded-sm"
+          type="text"
+          value={newQuestion.question}
+          onChange={(e) =>
+            setNewQuestion({ ...newQuestion, question: e.target.value })
+          }
+        />
 
-          <br />
-          <button
-            className=" text-white p-1 w-full bg-black rounded-lg hover:bg-slate-600"
-            type="submit"
-          >
-            Post
-          </button>
-        </div>
-      </form>
+        <br />
+        <button
+          className=" text-white p-1 w-full bg-black rounded-lg hover:bg-slate-600"
+          type="submit"
+        >
+          Post
+        </button>
+      </div>
+    </form>
     </div>
   );
-};
+}
 
 export default QuestionForm;

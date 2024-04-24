@@ -4,7 +4,7 @@ import { useLogin } from "./userLogin";
 // import { login } from "../../services/apiAuth";
 
 function LoginForm() {
-  const [email, setMail] = useState("ganadhish@gmail.com");
+  const [email, setMail] = useState("alex@gmail.com");
   const [password, setPassword] = useState("Pass@1234");
   const { login, isLoading } = useLogin();
 

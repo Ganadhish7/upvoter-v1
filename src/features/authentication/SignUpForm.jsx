@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
 
 function SignUpForm() {
-  // eslint-disable-next-line no-unused-vars
   const { signup, isLoading } = useSignup();
   const { register, handleSubmit, formState, getValues, reset } = useForm();
   const { errors } = formState;

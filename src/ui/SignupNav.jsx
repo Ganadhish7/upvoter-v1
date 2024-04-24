@@ -8,7 +8,7 @@ function SignupNav() {
           <ul className=" flex justify-evenly ">
             <li>
               <NavLink to="/login">
-                <span>Login</span>
+                <span>&larr; Login</span>
               </NavLink>
             </li>
             <li>

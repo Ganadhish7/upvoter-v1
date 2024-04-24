@@ -46,7 +46,7 @@ const QuestionList = ({ questions }) => {
   // }
 
   return (
-    <div className="  mt-5 rounded-xl max-h-[25rem] overflow-y-auto md:overflow-auto">
+    <div className="  m-1 rounded-xl max-h-screen overflow-y-auto md:overflow-auto">
       <p className=" font-bold uppercase">Questions</p>
       {questions.map((question) => (
         <div className=" text-left p-3 text-lg" key={question.id}>
@@ -58,7 +58,7 @@ const QuestionList = ({ questions }) => {
             <p>Upvotes: {question.upvotes}</p>
             <p>Timestamp: {new Date(question.created_at).toLocaleString()}</p>
             <button
-              className=" bg-black text-white p-1 rounded-lg w-full hover:bg-slate-700"
+              className=" bg-black text-white p-2 rounded-lg hover:bg-slate-700"
               onClick={() => handleUpvote(question.id)}
             >
               Upvote
